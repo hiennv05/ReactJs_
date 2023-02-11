@@ -44,6 +44,7 @@ var printInfoDep2 = function (dep) {
     console.log("Thông tin phòng ban là ID: ", dep.getId(), ", Name: ", dep.getName());
 };
 exports.printInfoDep2 = printInfoDep2;
+// Cách 3
 var printInfoDep3 = function (dep) {
     console.log("Thông tin phòng ban là ID: ", dep.getId(), ", Name: ", dep.getName());
 };
