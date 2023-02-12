@@ -16,3 +16,4 @@ var calculate = function (a, b, functionParam) {
 };
 console.log("==== HOF====");
 calculate(20, 10, sum);
+calculate(10, 5, minus);

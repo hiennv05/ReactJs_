@@ -1,0 +1,75 @@
+-- Java Script cấu trúc lỏng lẻo => Sinh ra TypeScript
+-- TypeScript có tính hướng đối tượng
+
+-- TypeScript & JavaScripts Advanced
+
+-- ReactJS`
+
+
+3. Tạo class
+    + Thuộc tính, phương thức
+    + Getter, setter, constructor
+
+4. Các cách khai báo hàm trong JavaScripts
+    + 3 cách..
+    Function, Khai báo biến, Arrow
+
+5. Export
+    + Export theo từng thành phần: export{}
+    + Export theo từng thành phần: Để từ khóa export trước thành phần đó
+    + Export default.. Export duy nhất 1 thành phần,  khi dùng thì có thể dùng alias
+
+6. Cacs vòng lặp hay dùng
+    + for i, forEach, forin for of, map
+
+7. Var, let, const
+    var: Redeclare, hosting
+    let
+
+8. Destructuring, Spread...
+
+9. HOF Higher Order Function => Hàm cấp cao
+    là 1 hàm trong Js có thể nhận 1 hàm khác là tham số đầu vào
+    sau khi xử lý xong có thể trả ra 1 hàm mới
+
+10. Bất đồng bộ trong Js
+    Giải quyết callback hell
+    -Promise
+    -Asyn/Await
+
+22. ReactJS
+    1. Chia nhỏ để quản lý
+    2. Tái sử dụng code (Component)
+
+    Làm thế nào để tạo ra các Component
+        - Cài đặt công cụ:
+            npm install -g create-react-app
+        -Tạo Project
+            create-react-app nameProject
+        -Chạy Project
+            npm start
+        - Sử dụng CSS trong React
+            C1: Css trong thẻ luôn vd: {style: {color: "red"}}
+            C2: CSS in file
+            C3: Tạo ra file CSS => import
+
+
+        -JSX
+
+    Làm sao để Style cho các Component đó
+    Truyền dữ lieu giữa các Component
+        -Truyền từ cha xuống con: props(properties) => key- value
+            + this.props.teenProps
+            + props.tênProps
+        -Truyền từ con sang cha
+            + Sử dụng Callback()
+            => Khai báo hàm Callback tại cha
+            => Truyền hàm vừa khai báo thông qua Props xuống con
+            => Gọi hàm Callback bên component con
+            => Nếu muốn đẩy thêm dữ liệu thì sử dụng tham số của hàm Callback
+
+        -Truyền từ con sang con
+
+    State: + Giống như 1 biến trong class Component => Mỗi khi state thay đổi thì component sẽ re-render lại(load lại)
+            + Chỉ sử dụng đc trong class Component
+

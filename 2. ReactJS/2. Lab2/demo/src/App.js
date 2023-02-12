@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import ComponentBottom from "./Components/ComponentBottom";
+import ComponentTop from "./Components/ComponentTop";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    let x = 10;
+    let y = 20;
+    let headingTop = "---Component Top---";
+    // Khai báo hàm callback nhận dữ liệu từ Top
+    let onHandleSendData = (data) => {
+        console.log("Click App!");
+        console.log(data);
+    };
+    return (
+        <div className="container">
+            <div className="App">
+                <ComponentTop
+                    x={x}
+                    y={y}
+                    headingTop={headingTop}
+                    onHandleSendData={onHandleSendData}
+                />
+                <ComponentBottom onHandleSendData={onHandleSendData} />
+            </div>
+        </div>
+    );
 }
 
 export default App;
