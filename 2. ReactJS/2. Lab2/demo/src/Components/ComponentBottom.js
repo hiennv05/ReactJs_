@@ -1,11 +1,15 @@
 import React from "react";
+
 //rsf =>
 function ComponentBottom(props) {
 
-    const handleSendData = () => {
-        let dataBottom = "demo Data";
-       props.onHandleSendData(dataBottom);
-    }
+    // const handleSendData = () => {
+    //     let dataBottom = "demo Data";
+    //    props.onHandleSendData(dataBottom);
+    // }
+
+
+    console.log("Bottom props: ", props);
     return (
         <div className="row">
             <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -20,8 +24,11 @@ function ComponentBottom(props) {
                             className="form-control"
                             rows="3"
                             required="required"
-                        ></textarea>
-                        <button onClick={handleSendData}>Sendata</button>
+                            defaultValue={props.dataFromInput}
+                        >
+                        </textarea>
+                        {/* <button onClick={handleSendData}>Sendata</button> */}
+                        {/* <p>{props.dataFromInput}</p> */}
                     </div>
                 </div>
             </div>

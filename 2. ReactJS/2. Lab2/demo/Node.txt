@@ -57,7 +57,8 @@
         -JSX
 
     Làm sao để Style cho các Component đó
-    Truyền dữ lieu giữa các Component
+
+    2. Truyền dữ lieu giữa các Component
         -Truyền từ cha xuống con: props(properties) => key- value
             + this.props.teenProps
             + props.tênProps
@@ -68,8 +69,26 @@
             => Gọi hàm Callback bên component con
             => Nếu muốn đẩy thêm dữ liệu thì sử dụng tham số của hàm Callback
 
-        -Truyền từ con sang con
+        -Truyền từ con sang con(đông cấp)
+            -không truyền trực tiếp đc, cần qua 1 component trung gian
 
-    State: + Giống như 1 biến trong class Component => Mỗi khi state thay đổi thì component sẽ re-render lại(load lại)
+        - Truyền dữ liệu qua nhiều tầng 
+            + SỬ dụng props thông qua từng tầng
+            + Context
+
+    3. State: + Giống như 1 biến trong class Component => Mỗi khi state thay đổi thì component sẽ re-render lại(load lại)
             + Chỉ sử dụng đc trong class Component
 
+    4. Lấy dữ liệu từ form nhập liệu
+        - Khai báo các State quản lý các dữ liệu các ô nhập liệu tương ứng
+        - bắt sự kiên onChange => viết hàm handleChange để quản lý;
+        - Lấy dữ liệu từ ô nhập liệu = event.target.value
+
+    5. Thư viện khi làm UI
+        - ReactTRap (~~ Bootstrap)
+        - Material UI
+        - Ant Design
+
+    6. UI Component, Container Component
+        UI Component : Hiển thị dữ liệu
+        Container Component : Xử lý dữ liệu, xử lý logic =>> Đưa vào UI Component để hiển thị

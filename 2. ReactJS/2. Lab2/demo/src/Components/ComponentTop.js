@@ -5,22 +5,29 @@ class ComponentTop extends Component {
         super(props);
         this.state = {
             clickNumber: 0,
+            dataInput: "",
         };
     }
+    // Khai báo hàm get data from input
+    handleChange = (e) => {
+        this.setState({
+            dataInput: e.target.value,
+        });
+    };
+    
     // Khai báo hàm xử lý khi nhấn nút senData
     handleSendData = () => {
         // console.log("Click Send Data");
         // Khai báo ra 1 dữ liệu bất kỳ;
         // let dataTop = "This is data from Top";
-        // let { onHandleSendData } = this.props;
-        // onHandleSendData(dataTop);
-        this.setState({
-            clickNumber: this.state.clickNumber + 1,
-        });
+        let { onHandleSendData } = this.props;
+        onHandleSendData(this.state.dataInput);
+        // this.setState({
+        //     clickNumber: this.state.clickNumber + 1,
+        // });
     };
     render() {
-        let xP = this.props.x;
-        let { x, y, headingTop } = this.props;
+        let { headingTop } = this.props;
 
         return (
             <div className="row">
@@ -32,7 +39,10 @@ class ComponentTop extends Component {
                         <div className="panel-body">
                             <div className="row">
                                 <div className="col-xs-10 col-sm-10 col-md-10 col-lg-9">
-                                    <input className="form-control"></input>
+                                    <input
+                                        className="form-control"
+                                        onChange={this.handleChange}
+                                    ></input>
                                 </div>
                                 <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                                     <button
@@ -42,7 +52,7 @@ class ComponentTop extends Component {
                                     >
                                         Send Data
                                     </button>
-                                    <h3>{this.state.clickNumber} Lần</h3>
+                                    {/* <h3>{this.state.clickNumber} Lần</h3> */}
                                 </div>
                             </div>
                         </div>
