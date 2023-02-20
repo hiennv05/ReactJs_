@@ -41,7 +41,8 @@
     1. Chia nhỏ để quản lý
     2. Tái sử dụng code (Component)
 
-    Làm thế nào để tạo ra các Component
+
+    1. Làm thế nào để tạo ra các Component
         - Cài đặt công cụ:
             npm install -g create-react-app
         -Tạo Project
@@ -72,9 +73,9 @@
         -Truyền từ con sang con(đông cấp)
             -không truyền trực tiếp đc, cần qua 1 component trung gian
 
-        - Truyền dữ liệu qua nhiều tầng 
+        - Truyền dữ liệu qua nhiều tầng
             + SỬ dụng props thông qua từng tầng
-            + Context
+            + Context (provider, consumer)
 
     3. State: + Giống như 1 biến trong class Component => Mỗi khi state thay đổi thì component sẽ re-render lại(load lại)
             + Chỉ sử dụng đc trong class Component
@@ -92,3 +93,54 @@
     6. UI Component, Container Component
         UI Component : Hiển thị dữ liệu
         Container Component : Xử lý dữ liệu, xử lý logic =>> Đưa vào UI Component để hiển thị
+
+    7. Lifecycle
+        - Chỉ có trong class component
+        - Vòng đời của 1 component
+        -
+        Mounting
+            constructor()
+            render()
+            componentDidMount()
+
+        Updating
+            render()
+            componentDidUpdate()
+
+        Unmounting
+            componentWillUnmount()
+
+    8. Hook (Function Component only)
+        - useState(): Giúp quản lý State trong Function component;
+        - useEffect(): Giúp quản lý trạng thái của Function Component(Gần giống Lifecycle)
+            useEffect(Function, [dependencies])
+            Cách viết của useEffect ảnh hưởng thế nào tới quá trình gọi các đoạn code trong nó
+            + Cách 1
+                useEffect(()=> {
+                    console.log("abc")
+                });
+                =>> tương đương componentDidMount và componentDidUpdate
+
+            + Cách 2
+                   useEffect(()=> {
+                    console.log("abc")
+                }, [dependencies]);
+                =>> tương đương componentDidMount và componentDidUpdate (Chỉ đc gọi khi dependencies thay đổi)
+
+            + Cách 3
+                useEffect(()=> {
+                    console.log("abc")
+                }, []);
+                =>> Tương đương Component did mount
+
+
+            + Cách 4
+            useEffect(() => {
+                return () => {
+                    console.log("Code 4");
+                };
+            });
+            =>> Tương đương componentWillUnmount
+            
+        - useContext():
+        - useReducer():

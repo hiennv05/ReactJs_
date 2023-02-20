@@ -1,10 +1,10 @@
 import "./App.css";
-import AccountPage from "./Page/AccountPage";
+import LifeCycleDemo from "./Component/LifeCycleDemo";
 
 function App() {
     return (
         <div className="App">
-            <AccountPage/>
+            <LifeCycleDemo/>
         </div>
     );
 }
