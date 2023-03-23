@@ -3,14 +3,17 @@ import { Form, FormGroup, Label, Input, Button, Container } from "reactstrap";
 
 function InputForm(props) {
     // Destructuring
-    const { onHandleCreateNew } = props;
+    const { onHandleCreateNew, listDepartments, listPositions } = props;
 
     // Khai báo quản lí dữ liệu form
-    const [Email, setEmail] = useState("");
-    const [Username, setUsername] = useState("");
-    const [Fullname, setFullname] = useState("");
-    const [Department, setDepartment] = useState("");
-    const [Position, setPosition] = useState("");
+    let [Email, setEmail] = useState("");
+    let [Username, setUsername] = useState("");
+    let [Fullname, setFullname] = useState("");
+    let [Department, setDepartment] = useState("");
+    let [Position, setPosition] = useState("");
+    let [CreateDate, setCreateDate] = useState("");
+
+    // setCreateDate(moment().format("DD-MM-YYYY"));
 
     //Khai báo hàm handleCrate
     const handleCreate = () => {
@@ -18,9 +21,33 @@ function InputForm(props) {
         //     console.log("Username: ", Username);
         //     console.log("Fullname: ", Fullname);
         //     console.log("Department: ", Department);
-        onHandleCreateNew();
+        const accountAPI = {
+            email: Email,
+            username: Username,
+            fullName: Fullname,
+            department: Department,
+            position: Position,
+        };
+        onHandleCreateNew(accountAPI);
     };
 
+    // Khai báo hàm handleReset form
+    const handleReset = () => {
+        setEmail("");
+        setUsername("");
+        setFullname("");
+    };
+
+    // Hiển thị Departments và position trong modal form
+    // Value sẽ trả về cho backend
+
+    let depItems = listDepartments.map((department, key) => {
+        return <option value={department.id} key= {department.id}>{department.name}</option>;
+    });
+
+    let posItems = listPositions.map((position, key) => {
+        return <option value={position.id} key= {position.id}>{position.name}</option>;
+    });
     return (
         <Container>
             <Form>
@@ -78,11 +105,11 @@ function InputForm(props) {
                             setDepartment(e.target.value);
                         }}
                     >
-                        <option value={"Bán hàng"}>Bán hàng</option>
-                        <option value={"Bảo vệ"}>Bảo vệ</option>
+                        {depItems}
+                        {/* <option value={"Bảo vệ"}>Bảo vệ</option>
                         <option value={"Giám đốc"}>Giám đốc</option>
                         <option value={"Kỹ thuật"}>Kỹ thuật</option>
-                        <option value={"Marketing"}>Marketing</option>
+                        <option value={"Marketing"}>Marketing</option> */}
                     </Input>
                     {/* Position */}
                 </FormGroup>
@@ -97,10 +124,11 @@ function InputForm(props) {
                             setPosition(e.target.value);
                         }}
                     >
-                        <option value={"Dev"}>Dev</option>
+                        {posItems}
+                        {/* <option value={"Dev"}>Dev</option>
                         <option value={"Test"}>Test</option>
                         <option value={"PM"}>PM</option>
-                        <option value={"BOD"}>BOD</option>
+                        <option value={"BOD"}>BOD</option> */}
                     </Input>
                 </FormGroup>
                 {/* Nút xử lý */}
@@ -108,7 +136,9 @@ function InputForm(props) {
                 <Button color="success" onClick={handleCreate}>
                     Create
                 </Button>
-                <Button color="danger">Reset</Button>
+                <Button color="danger" onClick={handleReset}>
+                    Reset
+                </Button>
             </Form>
         </Container>
     );

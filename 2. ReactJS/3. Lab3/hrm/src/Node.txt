@@ -153,3 +153,25 @@
     Promise: .then, .catch
 
     Asyn Await: Asyn, Await
+
+    10. React Router-dom
+    npm install react-router-dom
+
+    Link
+    NavLink auto them class active cho the de css
+
+    Link qua trang khác để làm detail = param này kia
+    param: useParam()
+
+    11. Redux
+    - Sử dụng để quản lý các State: Golbal
+    + Store
+    + Reducer
+    + Action
+
+    -Redux Core
+    -Redux Core -React
+
+    npm install redux react-redux --save
+
+    useSelector =>> lấy các state đc quản lý bởi Store

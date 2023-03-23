@@ -22,11 +22,7 @@ function ResultForm(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    <ResultFormItem />
-                    <ResultFormItem />
-                    <ResultFormItem />
-                    <ResultFormItem />
-                    <ResultFormItem />
+                    <ResultFormItem listAccount = {props.listAccount}/>
                 </tbody>
             </Table>
         </Container>

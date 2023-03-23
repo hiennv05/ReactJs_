@@ -1,10 +1,12 @@
 import "./App.css";
 import LifeCycleDemo from "./Component/LifeCycleDemo";
+import { Redux } from "./ReduxCore/Redux";
 
 function App() {
     return (
         <div className="App">
-            <LifeCycleDemo/>
+            {/* <LifeCycleDemo/> */}
+            NVH
         </div>
     );
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import {
     Button,
     Modal,
@@ -8,19 +9,28 @@ import {
     Container,
 } from "reactstrap";
 import InputForm from "./InputForm";
+import StoreRedux from "../../Redux/Store/StoreRedux";
+import { actionCloseForm } from "../../Redux/Action/FormAction";
 
 function ModalCreateNew(props) {
-
     const handleClose = () => {
-         props.closeModal();
-    }
+        // props.closeModal();
+        StoreRedux.dispatch(actionCloseForm());
 
+    };
+
+    // Kết nối Redux để lấy State show form về sử dụng
+    let showFormFromStore = useSelector((state) => state.formReducer.showForm);
     return (
         <Container>
-            <Modal isOpen={props.isOpen}>
+            <Modal isOpen={showFormFromStore}>
                 <ModalHeader>Create New Account</ModalHeader>
                 <ModalBody>
-                    <InputForm onHandleCreateNew={props.onHandleCreateNew} />
+                    <InputForm
+                        onHandleCreateNew={props.onHandleCreateNew}
+                        listDepartments={props.listDepartments}
+                        listPositions={props.listPositions}
+                    />
                 </ModalBody>
                 <ModalFooter>
                     <Button color="primary" onClick={handleClose}>
@@ -31,7 +41,6 @@ function ModalCreateNew(props) {
         </Container>
     );
 }
-
 export default ModalCreateNew;
 // function Example(args) {
 //   const [modal, setModal] = useState(false);
